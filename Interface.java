@@ -238,16 +238,56 @@ public class Interface extends JFrame implements ActionListener {
       layoutConst.insets = new Insets(10, 10, 10, 10);
       add(Z4B, layoutConst);
    }
-    public void callFacer(String[] zone1, String[] zone2, String[] zone3, String[] zone4) {
-        String facerPath = "Path_to_the_file\\test.py";
+    public void callFacer(String[] zone1, String[] zone2, String[] zone3, String[] zone4) throws IOException {
+        String facerPath = "./facer_rgb.py";
         for (int i = 1; i <= 4; i++) {
+         String red, green, blue, s;
+         switch(i){
+            case 1:
+               red = zone1[0];
+               green = zone1[1];
+               blue = zone1[2];
+               break;
+            case 2:
+               red = zone2[0];
+               green = zone2[1];
+               blue = zone2[2];
+               break;
+            case 3:
+               red = zone3[0];
+               green = zone3[1];
+               blue = zone3[2];
+               break;
+            case 4:
+               red = zone4[0];
+               green = zone4[1];
+               blue = zone4[2];
+               break;
+            default:
+               red = "0";
+               green = "0";
+               blue = "0";
+               break;
+         }
+
             String [] cmd = new String[9];
             cmd[0] = "python";
             cmd[1] = facerPath;
-            cmd[2] = "arg1";
-            cmd[3] = "arg2";
-            cmd[4] = "arg3";
+            cmd[2] = "-z" + i;
+            cmd[3] = "-cR";
+            cmd[4] = red;
+            cmd[5] = "-cG";
+            cmd[6] = green;
+            cmd[7] = "-cB";
+            cmd[8] = blue;
             Runtime r = Runtime.getRuntime();
+            Process p = r.exec(cmd);
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
+            while((s=in.readLine()) != null){
+            System.out.println(s);
+            }
+
         }
         
    }
@@ -281,6 +321,12 @@ public class Interface extends JFrame implements ActionListener {
       zone4[1] = Z4G.getText();
       zone4[2] = Z4B.getText();
       
+      try {
+      callFacer(zone1, zone2, zone3, zone4);
+      }
+      catch (IOException e) {
+         System.out.println("Failed to call Facer");
+      }
    }
 
    /* Creates a SalaryCalculatorFrame and makes it visible */
