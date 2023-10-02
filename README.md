@@ -1,7 +1,12 @@
 # Unofficial Acer Gaming RGB keyboard backlight and Turbo mode Linux kernel module (Acer Predator, Acer Helios, Acer Nitro)
 ![](keyboard.webp)
+
+Join the discord server:   
+[![](https://dcbadge.vercel.app/api/server/bNa4Qw8rPH)](https://discord.gg/bNa4Qw8rPH)
     
 Inspired by [faustus(for asus)](https://github.com/hackbnw/faustus), this project extends current acer-wmi linux kernel module to support Acer gaming functions.
+
+
 
 > **Warning**
 > ## Use at your own risk! Acer was not involved in developing this driver, and everything is developed by reverse engeineering official Predator Sense app. This driver interacts with low-level WMI methods which haven't been tested on all series.  
@@ -33,7 +38,7 @@ Compablity table:
 | PH315-52     |                                                     Yes                                                     |                                                     Yes                                                     |        Yes        |     Yes      |
 | PH315-53     |                                                     Yes                                                     |                                                     Yes                                                     |        Yes        |     Yes      |
 | PH315-54     |                                                     Yes                                                     |                                                     Yes                                                     |        Yes        |     Yes      |
-| PH315-55     |                                                     Yes                                                     |                                                     No                                                      |        Yes        |     Yes      |
+| PH315-55     |                                                     Yes                                                     |                                                     [Buggy](https://github.com/JafarAkhondali/acer-predator-turbo-and-rgb-keyboard-linux-module/issues/122)                                                      |        Yes        |     No      |
 | PH317-53     |                                                     Yes                                                     |                                                     Yes                                                     |        Yes        |     Yes      |
 | PH317-54     |                                                     Yes                                                     |                                                     No                                                      |        Yes        |      No      |
 | PH517-51     |                                                     Yes                                                     |                                                     No                                                      |        Yes        |      No      |
