@@ -270,18 +270,16 @@ public class Interface extends JFrame implements ActionListener {
                break;
          }
 
-            String [] cmd = new String[9];
+            String [] cmd = new String[3];
             cmd[0] = "python";
             cmd[1] = facerPath;
-            cmd[2] = "-z" + i;
-            cmd[3] = "-cR";
-            cmd[4] = red;
-            cmd[5] = "-cG";
-            cmd[6] = green;
-            cmd[7] = "-cB";
-            cmd[8] = blue;
+            cmd[2] = " -m 0 " + "-z " + i + " -cR " + red + " -cG " + green + " -cB " + blue;
             Runtime r = Runtime.getRuntime();
             Process p = r.exec(cmd);
+            for (int j =0; j < cmd.length; j++) {
+               System.out.print(cmd[j]);
+            }
+            System.out.println();
 
             BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
             while((s=in.readLine()) != null){
